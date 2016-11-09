@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("DeIonizer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A network stress-testing tool")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("IridiumIon Software")]
 [assembly: AssemblyProduct("DeIonizer")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright © 2016 0xFireball, IridiumIon Software")]
+[assembly: AssemblyTrademark("DeIonizer")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
