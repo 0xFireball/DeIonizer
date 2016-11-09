@@ -1,7 +1,8 @@
 ﻿using Avalonia.Markup.Xaml;
+using DeIonizer.VM;
 using nkyUI.Controls;
 
-namespace DeIonizer
+namespace DeIonizer.Views
 {
     public class MainWindow : KYUIWindow
     {
@@ -9,6 +10,7 @@ namespace DeIonizer
         {
             this.InitializeComponent();
             App.AttachDevTools(this);
+            DataContext = new MainWindowVM();
         }
 
         private void InitializeComponent()
