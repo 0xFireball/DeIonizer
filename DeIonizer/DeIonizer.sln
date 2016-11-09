@@ -5,18 +5,49 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeIonizer", "DeIonizer\DeIonizer.csproj", "{5838BEAF-A4FC-4896-A51A-5D3E4D31EBEC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{A51EB2A9-0B25-44B9-B8FB-0D34289D54A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nkyUI", "..\nkyUI\nkyUI\nkyUI\nkyUI.csproj", "{D5EFB869-2B27-43B9-BB32-4650CC99FA33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5838BEAF-A4FC-4896-A51A-5D3E4D31EBEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5838BEAF-A4FC-4896-A51A-5D3E4D31EBEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5838BEAF-A4FC-4896-A51A-5D3E4D31EBEC}.Debug|x64.ActiveCfg = Debug|x64
+		{5838BEAF-A4FC-4896-A51A-5D3E4D31EBEC}.Debug|x64.Build.0 = Debug|x64
+		{5838BEAF-A4FC-4896-A51A-5D3E4D31EBEC}.Debug|x86.ActiveCfg = Debug|x86
+		{5838BEAF-A4FC-4896-A51A-5D3E4D31EBEC}.Debug|x86.Build.0 = Debug|x86
 		{5838BEAF-A4FC-4896-A51A-5D3E4D31EBEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5838BEAF-A4FC-4896-A51A-5D3E4D31EBEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5838BEAF-A4FC-4896-A51A-5D3E4D31EBEC}.Release|x64.ActiveCfg = Release|x64
+		{5838BEAF-A4FC-4896-A51A-5D3E4D31EBEC}.Release|x64.Build.0 = Release|x64
+		{5838BEAF-A4FC-4896-A51A-5D3E4D31EBEC}.Release|x86.ActiveCfg = Release|x86
+		{5838BEAF-A4FC-4896-A51A-5D3E4D31EBEC}.Release|x86.Build.0 = Release|x86
+		{D5EFB869-2B27-43B9-BB32-4650CC99FA33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5EFB869-2B27-43B9-BB32-4650CC99FA33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5EFB869-2B27-43B9-BB32-4650CC99FA33}.Debug|x64.ActiveCfg = Debug|x64
+		{D5EFB869-2B27-43B9-BB32-4650CC99FA33}.Debug|x64.Build.0 = Debug|x64
+		{D5EFB869-2B27-43B9-BB32-4650CC99FA33}.Debug|x86.ActiveCfg = Debug|x86
+		{D5EFB869-2B27-43B9-BB32-4650CC99FA33}.Debug|x86.Build.0 = Debug|x86
+		{D5EFB869-2B27-43B9-BB32-4650CC99FA33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5EFB869-2B27-43B9-BB32-4650CC99FA33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5EFB869-2B27-43B9-BB32-4650CC99FA33}.Release|x64.ActiveCfg = Release|x64
+		{D5EFB869-2B27-43B9-BB32-4650CC99FA33}.Release|x64.Build.0 = Release|x64
+		{D5EFB869-2B27-43B9-BB32-4650CC99FA33}.Release|x86.ActiveCfg = Release|x86
+		{D5EFB869-2B27-43B9-BB32-4650CC99FA33}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D5EFB869-2B27-43B9-BB32-4650CC99FA33} = {A51EB2A9-0B25-44B9-B8FB-0D34289D54A2}
 	EndGlobalSection
 EndGlobal

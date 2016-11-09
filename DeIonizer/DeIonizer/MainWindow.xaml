@@ -1,0 +1,15 @@
+﻿<kControls:KYUIWindow xmlns="https://github.com/avaloniaui"
+                      xmlns:kControls="clr-namespace:nkyUI.Controls;assembly=nkyUI"
+                      Icon="resm:nkyUI.Demo.icon.ico?assembly=nkyUI.Demo"
+                      Title="nkyUI Demo"
+                      Width="600"
+                      Height="400"
+                      MinWidth="500"
+                      MinHeight="300">
+  <kControls:KYUIWindow.WindowCommands>
+    <Button Content="IridiumIon Software" />
+  </kControls:KYUIWindow.WindowCommands>
+  <Grid Margin="20">
+    <TextBlock>Hello world!</TextBlock>
+  </Grid>
+</kControls:KYUIWindow>
