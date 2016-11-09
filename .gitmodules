@@ -1,0 +1,3 @@
+[submodule "nkyUI"]
+	path = nkyUI
+	url = https://github.com/0xFireball/nkyUI.git
