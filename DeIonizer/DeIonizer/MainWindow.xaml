@@ -1,6 +1,6 @@
 ﻿<kControls:KYUIWindow xmlns="https://github.com/avaloniaui"
                       xmlns:kControls="clr-namespace:nkyUI.Controls;assembly=nkyUI"
-                      Icon="resm:nkyUI.Demo.icon.ico?assembly=nkyUI.Demo"
+                      Icon="resm:DeIonizer.icon.ico?assembly=DeIonizer"
                       Title="nkyUI Demo"
                       Width="600"
                       Height="400"
