@@ -24,7 +24,9 @@ namespace DeIonizer.VM
 
         public IFlooder SelectedAttack { get; set; }
 
-        public string StatusText { get; private set; }
+        public int AttackThreadCount { get; set; } = 4;
+
+        public string StatusText { get; private set; } = "Ready";
 
         public MainWindowVM()
         {

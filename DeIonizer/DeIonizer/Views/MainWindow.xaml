@@ -15,7 +15,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="20" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid Margin="35" Grid.Row="0">
             <StackPanel Orientation="Horizontal">
@@ -47,12 +47,20 @@
                     <TextBlock Text="Attack Type" Margin="0,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" />
                     <DropDown Items="{Binding AvailableAttacks}" SelectedItem="{Binding SelectedAttack}"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" />
                     <TextBlock Text="Threads" Margin="10,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="2" />
-                    <TextBox Text="{Binding ThreadCount}" MinWidth="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="3" />
+                    <TextBox Text="{Binding AttackThreadCount}" MinWidth="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="3" />
                 </Grid>
             </StackPanel>
         </Grid>
         <!--Status Strip-->
-        <Grid VerticalAlignment="Bottom" Grid.Row="1">
+        <Grid VerticalAlignment="Bottom" Background="{StyleResource AccentBaseColorBrush}" Height="24"  Grid.Row="1">
+            <Grid.Styles>
+                <Style Selector="ContentControl">
+                    <Setter Property="Foreground" Value="{StyleResource AccentBaseColorInverseNeutralBrush}" />
+                </Style>
+                <Style Selector="TextBlock">
+                    <Setter Property="Foreground" Value="{StyleResource AccentBaseColorInverseNeutralBrush}" />
+                </Style>
+            </Grid.Styles>
             <TextBlock Text="{Binding StatusText}" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
         </Grid>
     </Grid>
