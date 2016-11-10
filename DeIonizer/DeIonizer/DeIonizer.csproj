@@ -231,7 +231,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="States\MainWindowState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -246,6 +245,10 @@
     <ProjectReference Include="..\..\nkyUI\nkyUI\nkyUI\nkyUI.csproj">
       <Project>{d5efb869-2b27-43b9-bb32-4650cc99fa33}</Project>
       <Name>nkyUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DeIonizer.Core\DeIonizer.Core.csproj">
+      <Project>{b8ca9ac0-c2f4-4b62-be80-c3c8cb6bd9c1}</Project>
+      <Name>DeIonizer.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
