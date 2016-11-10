@@ -12,8 +12,15 @@ namespace DeIonizer.Core.Resolver
         {
             return Task.Run(() =>
             {
-                var result = Resolvers.FirstOrDefault(r => r.CanResolve(target)).Resolve(target);
-                return result;
+                try
+                {
+                    var result = Resolvers.FirstOrDefault(r => r.CanResolve(target)).Resolve(target);
+                    return result;
+                }
+                catch
+                {
+                    return null;
+                }
             });
         }
     }
