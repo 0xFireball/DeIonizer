@@ -22,6 +22,10 @@ namespace DeIonizer.VM
 
         public ReactiveList<IFlooder> AvailableAttacks { get; private set; } = new ReactiveList<IFlooder>(FlooderLoaderService.BuiltinFlooders);
 
+        public IFlooder SelectedAttack { get; set; }
+
+        public string StatusText { get; private set; }
+
         public MainWindowVM()
         {
             VisitIridiumIonCommand = ReactiveCommand.CreateAsyncTask(_ => state.VisitIridiumIon());
