@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Flooders\BaseFlooder.cs" />
     <Compile Include="Flooders\FlooderLoaderService.cs" />
     <Compile Include="Flooders\IFlooder.cs" />
     <Compile Include="Flooders\UdpFlooder.cs" />

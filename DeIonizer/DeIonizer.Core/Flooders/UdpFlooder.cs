@@ -1,7 +1,7 @@
 ﻿namespace DeIonizer.Core.Flooders
 {
-    public class UdpFlooder : IFlooder
+    public class UdpFlooder : BaseFlooder
     {
-        public string DisplayName => "UDP";
+        public override string DisplayName => "UDP";
     }
 }
