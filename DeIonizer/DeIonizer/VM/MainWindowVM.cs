@@ -8,6 +8,8 @@ namespace DeIonizer.VM
 {
     internal class MainWindowVM : ReactiveObject
     {
+        private readonly static string s_defaultStatus = "Ready";
+
         private readonly MainWindowState state = new MainWindowState();
 
         public ReactiveCommand<Unit> VisitIridiumIonCommand { get; }
@@ -26,7 +28,9 @@ namespace DeIonizer.VM
 
         public int AttackThreadCount { get; set; } = 4;
 
-        public string StatusText { get; private set; } = "Ready";
+        public int AttackPort { get; set; } = 80;
+
+        public string StatusText { get; private set; } = s_defaultStatus;
 
         public MainWindowVM()
         {
@@ -36,9 +40,13 @@ namespace DeIonizer.VM
 
         private async Task LockTarget()
         {
+            StatusText = "Resolving Target...";
+            this.RaisePropertyChanged(nameof(StatusText));
             var resolvedAddress = await state.LockTarget(TargetLocation) ?? "Unable to resolve";
             LockedTargetAddress = resolvedAddress;
             this.RaisePropertyChanged(nameof(LockedTargetAddress));
+            StatusText = s_defaultStatus;
+            this.RaisePropertyChanged(nameof(StatusText));
         }
     }
 }
