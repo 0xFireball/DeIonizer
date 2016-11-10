@@ -4,7 +4,7 @@ using nkyUI.Controls;
 
 namespace DeIonizer.Views
 {
-    public class MainWindow : KYUIWindow
+    class MainWindow : KYUIWindow
     {
         public MainWindow()
         {

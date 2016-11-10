@@ -6,10 +6,13 @@
                       Height="400"
                       MinWidth="480"
                       MinHeight="200">
-    <kControls:KYUIWindow.WindowCommands>
-        <Button Content="IridiumIon Software" Command="{Binding VisitIridiumIonCommand}" />
-    </kControls:KYUIWindow.WindowCommands>
-    <Grid Margin="20">
-        <TextBlock>Hello world!</TextBlock>
-    </Grid>
+  <kControls:KYUIWindow.WindowCommands>
+    <Button Content="IridiumIon Software" Command="{Binding VisitIridiumIonCommand}" />
+    <Button Content="{Binding ApplicationVersion}" />
+  </kControls:KYUIWindow.WindowCommands>
+  <Grid Margin="20">
+    <StackPanel Orientation="Horizontal" Margin="10">
+      <TextBlock>DeIonizer Cannon</TextBlock>
+    </StackPanel>
+  </Grid>
 </kControls:KYUIWindow>
