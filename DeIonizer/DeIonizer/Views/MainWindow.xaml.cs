@@ -1,5 +1,4 @@
-﻿using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+﻿using Avalonia.Markup.Xaml;
 using DeIonizer.VM;
 using nkyUI.Controls;
 

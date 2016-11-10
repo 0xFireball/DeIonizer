@@ -8,9 +8,7 @@
                       MinHeight="200">
     <kControls:KYUIWindow.WindowCommands>
         <Button Content="IridiumIon Software" Command="{Binding VisitIridiumIonCommand}" />
-        <!--
-    <Button Content="{Binding ApplicationVersion}" />
-    -->
+        <!--<Button Content="{Binding ApplicationVersion}" Command="ToggleWindowStyles" />-->
     </kControls:KYUIWindow.WindowCommands>
     <Grid>
         <Grid.RowDefinitions>
