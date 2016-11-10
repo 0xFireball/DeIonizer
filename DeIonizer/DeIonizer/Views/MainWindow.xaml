@@ -2,17 +2,20 @@
                       xmlns:kControls="clr-namespace:nkyUI.Controls;assembly=nkyUI"
                       Icon="resm:DeIonizer.icon.ico?assembly=DeIonizer"
                       Title="nkyUI Demo"
-                      Width="800"
-                      Height="400"
+                      Width="740"
+                      Height="540"
                       MinWidth="480"
                       MinHeight="200">
   <kControls:KYUIWindow.WindowCommands>
     <Button Content="IridiumIon Software" Command="{Binding VisitIridiumIonCommand}" />
+    <!--
     <Button Content="{Binding ApplicationVersion}" />
+    -->
   </kControls:KYUIWindow.WindowCommands>
   <Grid Margin="20">
-    <StackPanel Orientation="Horizontal" Margin="10">
-      <TextBlock>DeIonizer Cannon</TextBlock>
+    <StackPanel Orientation="Horizontal" Margin="15,15">
+      <TextBlock Text="DeIonizer Cannon" FontSize="24" FontWeight="Bold" />
+      <TextBlock Margin="12,8"  Text="{Binding ApplicationVersion}" FontSize="16" />
     </StackPanel>
   </Grid>
 </kControls:KYUIWindow>

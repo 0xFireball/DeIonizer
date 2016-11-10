@@ -1,10 +1,11 @@
-﻿using Avalonia.Markup.Xaml;
+﻿using Avalonia.Controls;
+using Avalonia.Markup.Xaml;
 using DeIonizer.VM;
 using nkyUI.Controls;
 
 namespace DeIonizer.Views
 {
-    class MainWindow : KYUIWindow
+    public class MainWindow : KYUIWindow
     {
         public MainWindow()
         {

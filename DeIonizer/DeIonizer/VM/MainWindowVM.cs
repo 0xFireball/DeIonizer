@@ -4,11 +4,13 @@ using System.Reactive;
 
 namespace DeIonizer.VM
 {
-    internal class MainWindowVM
+    internal class MainWindowVM : ReactiveObject    
     {
         private readonly MainWindowState state = new MainWindowState();
+
         public ReactiveCommand<Unit> VisitIridiumIonCommand { get; }
-        public string ApplicationVersion { get; }
+
+        public string ApplicationVersion => $"v{typeof(MainWindowVM).Assembly.GetName().Version.ToString()}";
 
         public MainWindowVM()
         {
