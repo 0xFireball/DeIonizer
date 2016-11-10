@@ -1,4 +1,5 @@
-﻿using DeIonizer.States;
+﻿using DeIonizer.Core.Flooders;
+using DeIonizer.States;
 using ReactiveUI;
 using System.Reactive;
 using System.Threading.Tasks;
@@ -18,6 +19,8 @@ namespace DeIonizer.VM
         public string TargetLocation { get; set; }
 
         public string LockedTargetAddress { get; private set; }
+
+        public ReactiveList<IFlooder> AvailableAttacks { get; private set; } = new ReactiveList<IFlooder>(FlooderLoaderService.BuiltinFlooders);
 
         public MainWindowVM()
         {
