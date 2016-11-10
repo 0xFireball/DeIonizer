@@ -43,7 +43,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resolver\IResolver.cs" />
     <Compile Include="Resolver\ResolutionPipeline.cs" />
-    <Compile Include="Resolver\ResolutionResult.cs" />
     <Compile Include="Resolver\UriResolver.cs" />
     <Compile Include="States\MainWindowState.cs" />
   </ItemGroup>

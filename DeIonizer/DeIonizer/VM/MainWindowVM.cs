@@ -1,7 +1,6 @@
 ﻿using DeIonizer.States;
 using ReactiveUI;
 using System.Reactive;
-using System;
 using System.Threading.Tasks;
 
 namespace DeIonizer.VM
@@ -18,6 +17,8 @@ namespace DeIonizer.VM
 
         public string TargetLocation { get; set; }
 
+        public string LockedTargetAddress { get; private set; }
+
         public MainWindowVM()
         {
             VisitIridiumIonCommand = ReactiveCommand.CreateAsyncTask(_ => state.VisitIridiumIon());
@@ -26,7 +27,9 @@ namespace DeIonizer.VM
 
         private async Task LockTarget()
         {
-            await state.LockTarget(TargetLocation);
+            var resolvedAddress = await state.LockTarget(TargetLocation) ?? "Unable to resolve";
+            LockedTargetAddress = resolvedAddress;
+            this.RaisePropertyChanged(nameof(LockedTargetAddress));
         }
     }
 }

@@ -11,10 +11,15 @@ namespace DeIonizer.States
             Process.Start("https://iridiumion.xyz");
         }
 
-        public async Task LockTarget(string targetLocation)
+        public async Task<string> LockTarget(string targetLocation)
         {
             //Asynchronously resolve location
-            await new ResolutionPipeline().Resolve(targetLocation);
+            var result = await new ResolutionPipeline().Resolve(targetLocation);
+            if (string.IsNullOrWhiteSpace(result))
+            {
+                result = null;
+            }
+            return result;
         }
     }
 }
