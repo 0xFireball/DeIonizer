@@ -6,7 +6,7 @@ namespace DeIonizer.Core.Resolver
 {
     public class ResolutionPipeline
     {
-        public IList<IResolver> Resolvers { get; } = new List<IResolver> { new UriResolver() };
+        public IList<IResolver> Resolvers { get; } = new List<IResolver> { new UriResolver(), new IPAddressResolver(), new HostnameResolver() };
 
         internal Task<string> Resolve(string target)
         {

@@ -45,6 +45,7 @@
     <Compile Include="Flooders\IFlooder.cs" />
     <Compile Include="Flooders\UdpFlooder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resolver\HostnameResolver.cs" />
     <Compile Include="Resolver\IPAddressResolver.cs" />
     <Compile Include="Resolver\IResolver.cs" />
     <Compile Include="Resolver\ResolutionPipeline.cs" />
