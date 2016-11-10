@@ -17,7 +17,7 @@ namespace DeIonizer.Core.Resolver
         {
             Uri resultUri;
             Uri.TryCreate(target, UriKind.RelativeOrAbsolute, out resultUri);
-            var dnsName = resultUri.DnsSafeHost;
+            var dnsName = resultUri.IsAbsoluteUri ? resultUri.DnsSafeHost : resultUri.ToString();
             return Dns.GetHostEntry(dnsName).AddressList
                 .FirstOrDefault(x => (x.AddressFamily == AddressFamily.InterNetwork) || (x.AddressFamily == AddressFamily.InterNetworkV6))
                 .ToString();
