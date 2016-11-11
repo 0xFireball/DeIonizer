@@ -60,6 +60,7 @@ namespace DeIonizer.Core.Flooders
 
         public override void Start()
         {
+            base.Start();
             for (int i = 0; i < Threads; i++)
             {
                 WorkerThreads.Add(new Thread(SpamLoop));
@@ -68,13 +69,12 @@ namespace DeIonizer.Core.Flooders
             {
                 worker.Start();
             }
-            base.Start();
         }
 
         public override void Stop()
         {
-            Initialize(); //Nuke everything
             base.Stop();
+            Initialize(); //Nuke everything
         }
 
         public override void Reset()

