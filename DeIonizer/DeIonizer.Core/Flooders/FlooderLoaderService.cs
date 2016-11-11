@@ -4,8 +4,9 @@ namespace DeIonizer.Core.Flooders
 {
     public class FlooderLoaderService
     {
-        public static IEnumerable<IFlooder> BuiltinFlooders => new[] {
-            new UdpFlooder()
+        public static IEnumerable<IFlooder> BuiltinFlooders => new IFlooder[] {
+            new UdpFlooder(),
+            new IcmpFlooder()
         };
     }
 }
