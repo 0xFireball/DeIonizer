@@ -9,12 +9,18 @@ namespace DeIonizer.VM
     internal class MainWindowVM : ReactiveObject
     {
         private readonly static string s_defaultStatus = "Ready";
+        private readonly static string s_startAttackText = "Start";
+        private readonly static string s_stopAttackText = "Stop";
 
         private readonly MainWindowState state = new MainWindowState();
+
+        private bool? _attackStatus => SelectedAttack?.IsFlooding;
 
         public ReactiveCommand<Unit> VisitIridiumIonCommand { get; }
 
         public ReactiveCommand<Unit> LockTargetCommand { get; }
+
+        public ReactiveCommand<Unit> ActivateControlRunnerCommand { get; }
 
         public string ApplicationVersion => $"v{typeof(MainWindowVM).Assembly.GetName().Version.ToString()}";
 
@@ -30,12 +36,23 @@ namespace DeIonizer.VM
 
         public int AttackPort { get; set; } = 80;
 
+        public string AttackMessage { get; set; } = "U dun goofed";
+
         public string StatusText { get; private set; } = s_defaultStatus;
+
+        public string ControlButtonText => _attackStatus.HasValue && _attackStatus.Value ? s_stopAttackText : s_startAttackText;
 
         public MainWindowVM()
         {
             VisitIridiumIonCommand = ReactiveCommand.CreateAsyncTask(_ => state.VisitIridiumIon());
             LockTargetCommand = ReactiveCommand.CreateAsyncTask(_ => LockTarget());
+            ActivateControlRunnerCommand = ReactiveCommand.CreateAsyncTask(_ => ActivateControlRunner());
+        }
+
+        private async Task ActivateControlRunner()
+        {
+            if (SelectedAttack == null) return;
+            
         }
 
         private async Task LockTarget()

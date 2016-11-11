@@ -43,13 +43,29 @@
                         <ColumnDefinition Width="auto" />
                         <ColumnDefinition Width="auto" />
                         <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="Attack Type" Margin="0,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" />
                     <DropDown Items="{Binding AvailableAttacks}" SelectedItem="{Binding SelectedAttack}"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" />
                     <TextBlock Text="Port" Margin="10,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="2" />
                     <TextBox Text="{Binding AttackPort}" MinWidth="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="3" />
                     <TextBlock Text="Threads" Margin="10,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="4" />
-                    <TextBox Text="{Binding AttackThreadCount}" MinWidth="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="5" />
+                    <TextBox Text="{Binding AttackThreadCount}" Margin="0,0,10,0" MinWidth="40" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="5" />
+                    <TextBlock Text="Message" Margin="0,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="6" />
+                    <TextBox Text="{Binding AttackMessage}" MinWidth="60"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="7" />
+                </Grid>
+                <!--Attack Controls-->
+                <Grid Margin="0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Packet Delay" Margin="0,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" />
+                    <TextBox Text="{Binding SelectedAttack.Delay}" Margin="0,0,10,0" MinWidth="40" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" />
+                    <Button Content="{Binding ControlButtonText}" Command="{Binding ActivateControlRunner}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="3" />
                 </Grid>
             </StackPanel>
         </Grid>
