@@ -1,9 +1,11 @@
-﻿using DeIonizer.Core.Flooders;
+﻿using Avalonia.Threading;
+using DeIonizer.Core.Flooders;
 using DeIonizer.States;
 using ReactiveUI;
 using System;
 using System.Net;
 using System.Reactive;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DeIonizer.VM
@@ -35,6 +37,8 @@ namespace DeIonizer.VM
 
         public IFlooder SelectedAttack { get; set; }
 
+        public bool SelectedAttackAvailable => (SelectedAttack == null) || !(SelectedAttack.IsFlooding);
+
         public int AttackThreadCount { get; set; } = 4;
 
         public int AttackPort { get; set; } = 80;
@@ -43,7 +47,7 @@ namespace DeIonizer.VM
 
         public int? RequestedPackets => SelectedAttack?.Requested;
 
-        public int? FailedPackets => SelectedAttack?.Requested;
+        public int? FailedPackets => SelectedAttack?.Failed;
 
         public string AttackMessage { get; set; } = "U dun goofed";
 
@@ -56,6 +60,8 @@ namespace DeIonizer.VM
             VisitIridiumIonCommand = ReactiveCommand.CreateAsyncTask(_ => state.VisitIridiumIon());
             LockTargetCommand = ReactiveCommand.CreateAsyncTask(_ => LockTarget());
             ActivateControlRunnerCommand = ReactiveCommand.CreateAsyncTask(_ => ActivateControlRunner());
+            this.WhenAnyValue(x => x.RequestedPackets)
+                .Subscribe(x => UpdateStatistics());
         }
 
         private async Task ActivateControlRunner()
@@ -79,7 +85,19 @@ namespace DeIonizer.VM
             {
                 SelectedAttack.Start();
                 UpdateStatus(s_attackingStatus);
+                //Schedule UI updates
+                var updaterResult = Task.Factory.StartNew(() =>
+                {
+                    while (SelectedAttack.IsFlooding)
+                    {
+                        UpdateStatistics();
+                        Thread.Sleep(200);
+                    }
+                });
             }
+            this.RaisePropertyChanged(nameof(SelectedAttackAvailable));
+            this.RaisePropertyChanged(nameof(ControlButtonText));
+            UpdateStatistics();
         }
 
         private async Task LockTarget()
@@ -97,10 +115,29 @@ namespace DeIonizer.VM
             this.RaisePropertyChanged(nameof(StatusText));
         }
 
+        public void UpdateStatistics()
+        {
+            if (_attackStatus.HasValue && _attackStatus.Value)
+            {
+                //We're attacking
+                Dispatcher.UIThread.InvokeAsync(() =>
+                {
+                    this.RaisePropertyChanged(nameof(RequestedPackets));
+                    this.RaisePropertyChanged(nameof(FailedPackets));
+                });
+            }
+        }
+
         private void HandleFlooderError(object sender, EventArgs e)
         {
             //Update UI
-            this.RaisePropertyChanged(nameof(SelectedAttack));
+            Dispatcher.UIThread.InvokeAsync(() =>
+            {
+                this.RaisePropertyChanged(nameof(SelectedAttack));
+
+                //Safe cleanup
+                ActivateControlRunner().GetAwaiter().GetResult();
+            });
         }
     }
 }
