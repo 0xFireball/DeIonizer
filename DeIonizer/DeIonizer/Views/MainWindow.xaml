@@ -64,8 +64,8 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="Packet Delay" Margin="0,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" />
-                    <TextBox Text="{Binding SelectedAttack.Delay}" Margin="0,0,10,0" MinWidth="40" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" />
-                    <Button Content="{Binding ControlButtonText}" Command="{Binding ActivateControlRunner}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="3" />
+                    <TextBox Text="{Binding AttackPacketDelay}" Margin="0,0,10,0" MinWidth="40" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" />
+                    <Button Content="{Binding ControlButtonText}" Command="{Binding ActivateControlRunnerCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="3" />
                 </Grid>
             </StackPanel>
         </Grid>

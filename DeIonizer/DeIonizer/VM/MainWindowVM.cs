@@ -1,6 +1,8 @@
 ﻿using DeIonizer.Core.Flooders;
 using DeIonizer.States;
 using ReactiveUI;
+using System;
+using System.Net;
 using System.Reactive;
 using System.Threading.Tasks;
 
@@ -9,6 +11,7 @@ namespace DeIonizer.VM
     internal class MainWindowVM : ReactiveObject
     {
         private readonly static string s_defaultStatus = "Ready";
+        private readonly static string s_attackingStatus = "Attacking";
         private readonly static string s_startAttackText = "Start";
         private readonly static string s_stopAttackText = "Stop";
 
@@ -36,6 +39,8 @@ namespace DeIonizer.VM
 
         public int AttackPort { get; set; } = 80;
 
+        public int AttackPacketDelay { get; set; } = 10;
+
         public string AttackMessage { get; set; } = "U dun goofed";
 
         public string StatusText { get; private set; } = s_defaultStatus;
@@ -52,18 +57,46 @@ namespace DeIonizer.VM
         private async Task ActivateControlRunner()
         {
             if (SelectedAttack == null) return;
-            
+            if (LockedTargetAddress == null) return;
+            //Register event
+            SelectedAttack.FloodError += HandleFlooderError;
+            //Update parameters
+            SelectedAttack.Delay = AttackPacketDelay;
+            SelectedAttack.Threads = AttackThreadCount;
+            SelectedAttack.Port = AttackPort;
+            SelectedAttack.Message = AttackMessage;
+            SelectedAttack.Target = IPAddress.Parse(LockedTargetAddress);
+            if (SelectedAttack.IsFlooding)
+            {
+                SelectedAttack.Stop();
+                UpdateStatus(s_defaultStatus);
+            }
+            else
+            {
+                SelectedAttack.Start();
+                UpdateStatus(s_attackingStatus);
+            }
         }
 
         private async Task LockTarget()
         {
-            StatusText = "Resolving Target...";
-            this.RaisePropertyChanged(nameof(StatusText));
+            UpdateStatus("Resolving Target...");
             var resolvedAddress = await state.LockTarget(TargetLocation) ?? "Unable to resolve";
             LockedTargetAddress = resolvedAddress;
             this.RaisePropertyChanged(nameof(LockedTargetAddress));
-            StatusText = s_defaultStatus;
+            UpdateStatus(s_defaultStatus);
+        }
+
+        private void UpdateStatus(string newValue)
+        {
+            StatusText = newValue;
             this.RaisePropertyChanged(nameof(StatusText));
+        }
+
+        private void HandleFlooderError(object sender, EventArgs e)
+        {
+            //Update UI
+            this.RaisePropertyChanged(nameof(SelectedAttack));
         }
     }
 }
