@@ -23,6 +23,8 @@ namespace DeIonizer.Core.Flooders
 
         void Stop();
 
+        void Reset();
+
         event EventHandler FloodError;
     }
 }

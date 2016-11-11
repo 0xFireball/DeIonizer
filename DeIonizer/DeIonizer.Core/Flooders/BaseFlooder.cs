@@ -25,9 +25,21 @@ namespace DeIonizer.Core.Flooders
 
         public virtual int Failed { get; set; }
 
-        public abstract void Start();
+        public virtual void Start()
+        {
+            IsFlooding = true;
+        }
 
-        public abstract void Stop();
+        public virtual void Stop()
+        {
+            IsFlooding = false;
+        }
+
+        public virtual void Reset()
+        {
+            Requested = 0;
+            Failed = 0;
+        }
 
         public abstract event EventHandler FloodError;
 

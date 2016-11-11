@@ -68,13 +68,19 @@ namespace DeIonizer.Core.Flooders
             {
                 worker.Start();
             }
-            IsFlooding = true;
+            base.Start();
         }
 
         public override void Stop()
         {
             Initialize(); //Nuke everything
-            IsFlooding = false;
+            base.Stop();
+        }
+
+        public override void Reset()
+        {
+            Initialize();
+            base.Reset();
         }
     }
 }

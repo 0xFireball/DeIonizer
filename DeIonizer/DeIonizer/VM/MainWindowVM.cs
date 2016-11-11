@@ -80,6 +80,7 @@ namespace DeIonizer.VM
             {
                 SelectedAttack.Stop();
                 UpdateStatus(s_defaultStatus);
+                SelectedAttack.Reset();
             }
             else
             {
@@ -95,9 +96,15 @@ namespace DeIonizer.VM
                     }
                 });
             }
+            RefreshAttackUi();
+        }
+
+        private void RefreshAttackUi()
+        {
             this.RaisePropertyChanged(nameof(SelectedAttackAvailable));
             this.RaisePropertyChanged(nameof(ControlButtonText));
-            UpdateStatistics();
+            this.RaisePropertyChanged(nameof(RequestedPackets));
+            this.RaisePropertyChanged(nameof(FailedPackets));
         }
 
         private async Task LockTarget()
@@ -136,7 +143,9 @@ namespace DeIonizer.VM
                 this.RaisePropertyChanged(nameof(SelectedAttack));
 
                 //Safe cleanup
-                ActivateControlRunner().GetAwaiter().GetResult();
+                SelectedAttack.Stop();
+                UpdateStatus(s_defaultStatus);
+                RefreshAttackUi();
             });
         }
     }
