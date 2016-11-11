@@ -41,6 +41,10 @@ namespace DeIonizer.VM
 
         public int AttackPacketDelay { get; set; } = 10;
 
+        public int? RequestedPackets => SelectedAttack?.Requested;
+
+        public int? FailedPackets => SelectedAttack?.Requested;
+
         public string AttackMessage { get; set; } = "U dun goofed";
 
         public string StatusText { get; private set; } = s_defaultStatus;

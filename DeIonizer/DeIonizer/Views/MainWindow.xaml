@@ -67,6 +67,28 @@
                     <TextBox Text="{Binding AttackPacketDelay}" Margin="0,0,10,0" MinWidth="40" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" />
                     <Button Content="{Binding ControlButtonText}" Command="{Binding ActivateControlRunnerCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="3" />
                 </Grid>
+                <!--Attack Stats-->
+                <Grid Margin="0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0">
+                        <TextBlock FontSize="16" FontWeight="Bold" Text="Statistics" Margin="0,10,15,0" />
+                    </Grid>
+                    <TextBlock Text="Requested" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1"  Grid.Column="0" />
+                    <TextBlock Text="Failed" FontWeight="Bold"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" />
+
+                    <TextBlock Text="{Binding RequestedPackets}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2"  Grid.Column="0" />
+                    <TextBlock Text="{Binding FailedPackets}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" />
+                </Grid>
             </StackPanel>
         </Grid>
         <!--Status Strip-->
