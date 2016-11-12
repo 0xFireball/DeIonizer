@@ -35,7 +35,7 @@ namespace DeIonizer.Core.Flooders
                         {
                             while (IsFlooding)
                             {
-                                pinger.SendPingAsync(remoteHost.Address);
+                                pinger.Send(remoteHost.Address);
                                 Requested++;
                             }
                         }
