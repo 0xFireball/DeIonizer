@@ -1,10 +1,6 @@
 ﻿using Android.App;
 using Android.OS;
 using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Controls.Templates;
-using Avalonia.Android.Platform.Specific;
-using Avalonia.Markup.Xaml;
 using DeIonizer.SharedUI;
 
 namespace DeIonizer.Android
