@@ -1,8 +1,8 @@
 ﻿using Avalonia.Markup.Xaml;
-using DeIonizer.VM;
+using DeIonizer.SharedUI.VM;
 using nkyUI.Controls;
 
-namespace DeIonizer.Views
+namespace DeIonizer.SharedUI.Views
 {
     public class MainWindow : KYUIWindow
     {

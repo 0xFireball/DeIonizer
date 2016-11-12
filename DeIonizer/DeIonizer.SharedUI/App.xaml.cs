@@ -1,12 +1,9 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Diagnostics;
-using Avalonia.Logging.Serilog;
 using Avalonia.Markup.Xaml;
-using DeIonizer.Views;
-using Serilog;
 
-namespace DeIonizer
+namespace DeIonizer.SharedUI
 {
     public class App : Application
     {

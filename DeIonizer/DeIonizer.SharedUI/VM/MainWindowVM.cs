@@ -8,7 +8,7 @@ using System.Reactive;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DeIonizer.VM
+namespace DeIonizer.SharedUI.VM
 {
     internal class MainWindowVM : ReactiveObject
     {

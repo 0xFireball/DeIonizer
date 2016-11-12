@@ -1,6 +1,8 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Logging.Serilog;
-using DeIonizer.Views;
+using DeIonizer.SharedUI;
+using DeIonizer.SharedUI.Views;
+using Serilog;
 
 namespace DeIonizer
 {
