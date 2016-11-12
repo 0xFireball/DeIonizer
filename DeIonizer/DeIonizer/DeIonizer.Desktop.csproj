@@ -225,9 +225,7 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -247,11 +245,6 @@
       <Project>{38CC3F7B-EF6F-4AD3-B48F-B873D69862B3}</Project>
       <Name>DeIonizer.SharedUI</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="icon.ico" />

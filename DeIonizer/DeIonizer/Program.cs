@@ -1,34 +1,17 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Diagnostics;
+﻿using Avalonia.Controls;
 using Avalonia.Logging.Serilog;
-using Avalonia.Markup.Xaml;
 using DeIonizer.Views;
-using Serilog;
 
 namespace DeIonizer
 {
-    internal class App : Application
+    internal class Program
     {
-        public override void Initialize()
-        {
-            AvaloniaXamlLoader.Load(this);
-            base.Initialize();
-        }
-
         private static void Main(string[] args)
         {
             InitializeLogging();
             AppBuilder.Configure<App>()
                 .UsePlatformDetect()
                 .Start<MainWindow>();
-        }
-
-        public static void AttachDevTools(Window window)
-        {
-#if DEBUG
-            DevTools.Attach(window);
-#endif
         }
 
         private static void InitializeLogging()

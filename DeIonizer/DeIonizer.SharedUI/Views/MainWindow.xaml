@@ -1,6 +1,6 @@
 ﻿<kControls:KYUIWindow xmlns="https://github.com/avaloniaui"
                       xmlns:kControls="clr-namespace:nkyUI.Controls;assembly=nkyUI"
-                      Icon="resm:DeIonizer.icon.ico?assembly=DeIonizer"
+                      Icon="resm:DeIonizer.SharedUI.icon.ico?assembly=DeIonizer.SharedUI"
                       Title="DeIonizer Cannon"
                       Width="740"
                       Height="540"
