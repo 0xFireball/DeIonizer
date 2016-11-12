@@ -1,13 +1,8 @@
 ﻿using Android.App;
 using Android.OS;
-using Android.Content.PM;
-
-using Avalonia.Controls;
-using Avalonia.Controls.Templates;
-using Avalonia.Markup.Xaml;
-using Avalonia.Android.Platform.Specific;
-using Avalonia.Controls;
 using Avalonia;
+using Avalonia.Controls;
+using DeIonizer.SharedUI;
 
 namespace DeIonizer.Android
 {
@@ -18,14 +13,14 @@ namespace DeIonizer.Android
         {
             base.OnCreate(bundle);
 
-            DIAndroidApp app;
+            App app;
             if (Avalonia.Application.Current != null)
             {
-                app = (DIAndroidApp)Avalonia.Application.Current;
+                app = (App)Avalonia.Application.Current;
             }
             else
             {
-                app = new DIAndroidApp();
+                app = new App();
                 AppBuilder.Configure(app)
                     .UsePlatformDetect()
                     .UseSkia()
