@@ -26,6 +26,9 @@ namespace DeIonizer.Android
 		
 		public static void UpdateIdValues()
 		{
+			global::Avalonia.Android.Resource.String.ApplicationName = global::DeIonizer.Android.Resource.String.ApplicationName;
+			global::Avalonia.Android.Resource.String.Hello = global::DeIonizer.Android.Resource.String.Hello;
+			global::Splat.Resource.String.library_name = global::DeIonizer.Android.Resource.String.library_name;
 		}
 		
 		public partial class Attribute
@@ -77,7 +80,7 @@ namespace DeIonizer.Android
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int HelloWorld = 2130903040;
 			
 			static Layout()
 			{
@@ -92,11 +95,14 @@ namespace DeIonizer.Android
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f040002
+			public const int ApplicationName = 2130968578;
+			
 			// aapt resource value: 0x7f040001
-			public const int ApplicationName = 2130968577;
+			public const int Hello = 2130968577;
 			
 			// aapt resource value: 0x7f040000
-			public const int Hello = 2130968576;
+			public const int library_name = 2130968576;
 			
 			static String()
 			{
