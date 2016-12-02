@@ -1,4 +1,4 @@
-﻿using Avalonia.Controls;
+﻿using Avalonia;
 using Avalonia.Logging.Serilog;
 using DeIonizer.SharedUI;
 using DeIonizer.SharedUI.Views;
