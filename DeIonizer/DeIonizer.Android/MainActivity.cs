@@ -1,30 +1,29 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.OS;
+using Android.Content.PM;
+using Avalonia.Android;
+using Avalonia.Controls;
 using Avalonia;
 using DeIonizer.SharedUI;
+using DeIonizer.SharedUI.Views;
 
 namespace DeIonizer.Android
 {
-    [Activity(Label = "DeIonizer.Android", MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : Activity
+    [Activity(Label = "DeIonizer.Android", MainLauncher = true, Icon = "@drawable/icon",
+        LaunchMode = LaunchMode.SingleInstance)]
+    public class MainActivity : AvaloniaActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(bundle);
-
-            App app;
-            if (Avalonia.Application.Current != null)
+            if (Avalonia.Application.Current == null)
             {
-                app = (App)Avalonia.Application.Current;
-            }
-            else
-            {
-                app = new App();
-                AppBuilder.Configure(app)
+                AppBuilder.Configure(new App())
                     .UseAndroid()
-                    .UseSkia()
                     .SetupWithoutStarting();
+                Content = new MainWindow();
             }
+            base.OnCreate(bundle);
         }
     }
 }
